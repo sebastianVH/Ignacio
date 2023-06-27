@@ -1,0 +1,40 @@
+<div>
+    {% extends "bodasEventos.html" %}
+    {% load static %}
+
+    {% block getBodasEventos %}
+        <strong>Consultar Evento: </strong>
+        <form action="{% url 'getBodasEventos' %}" method="GET">
+            <input placeholder="nombre" type="text" name="nombre" id="nombre">
+            <input placeholder="apellido" type="text" name="Apellido" id="Apellido">
+            <input placeholder="tipoEvento" type="text" name="tipoEvento" id="tipoEvento">
+            <input placeholder="fechaSolicitud" type="text" name="fechaSolicitud" id="fechaSolicitud">
+            <input placeholder="fechaEvento" type="text" name="fechaEvento" id="fechaEvento">
+            <input placeholder="numeroInvitados" type="text" name="numeroInvitados" id="numeroInvitados">
+            <input placeholder="telefono" type="text" name="telefono" id="telefono">
+            <input placeholder="email" type="text" name="email" id="email">
+            <input placeholder="duracion" type="text" name="duracion" id="duracion">
+            <input placeholder="costo" type="text" name="costo" id="costo">
+            <input placeholder="estado" type="text" name="estado" id="estado">
+            <input placeholder="anotaciones" type="text" name="anotaciones" id="anotaciones">
+            <input type="submit" value="Buscar">
+        </form>
+
+        {% if eventos %}
+            {% for evento in eventos %}
+                <li> {{reserva.nombre}} </li>
+                <li> {{reserva.apellido}} </li>
+                <li> {{reserva.tipoEvento}} </li>
+                <li> {{reserva.fechaSolicitud}}
+                <li> {{reserva.fechaEvento}} </li>
+                <li> {{reserva.numeroInvitados}} </li>
+                <li> {{reserva.telefono}} </li>
+                <li> {{reserva.email}} </li>
+                <li> {{reserva.duracion}} </li>
+                <li> {{reserva.costo}} </li>
+                <li> {{reserva.estado}} </li>
+                <li> {{reserva.anotaciones}} </li>
+            {% endfor %}
+        {% endif %}
+    {% endblock %}
+</div>

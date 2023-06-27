@@ -1,0 +1,14 @@
+<div>
+    {% extends "reservaciones.html" %}
+    {% load static %}
+
+    {% block setReservas %}
+        <strong>Crear Reserva: </strong>
+        <form action="/setReservas/" method="POST"> {% csrf_token %}
+            <table>
+                {{ miReserva.as_table }}
+            </table>
+            <input type="submit" value="Enviar">
+        </form>
+    {% endblock %}
+</div>

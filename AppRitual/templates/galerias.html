@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Galerias | AppRitual</title>
+    {% extends "AppRitual/templatePadre.html" %}
+    {% load static %}
+</head>
+<body>
+    {% block content %}
+        <h3 style="color: #ffd700;"><strong>Galerías</strong></h3>
+    <div>
+    <a href="{% static 'img/fotosEspacio'%}">Espacio</a>
+  </div>
+  <div>
+    <a href="{% static 'img/fotosPlatillos'%}">Platillos</a>
+  </div>
+    {% endblock %}

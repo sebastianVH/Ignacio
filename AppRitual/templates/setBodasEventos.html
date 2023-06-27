@@ -1,0 +1,14 @@
+<div>
+    {% extends "bodasEventos.html" %}
+    {% load static %}
+
+    {% block setBodasEventos %}
+        <strong>Crear Evento: </strong>
+         <form action="{% url 'setBodasEventos' %}" method="POST"> {% csrf_token %}
+            <table>
+                {{ miEvento.as_table }}
+            </table>
+            <input type="submit" value="Enviar">
+        </form>
+    {% endblock %}
+</div>

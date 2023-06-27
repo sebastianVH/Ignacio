@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu | AppRitual</title>
+    {% extends "AppRitual/templatePadre.html" %}
+    {% load static %}
+</head>
+<body>
+    {% block welcome_message %}
+    <!-- No se mostrará ningún contenido aquí -->
+    {% endblock %}
+
+    {% block content %}
+        <h3 style="color: #ffd700;"><strong>Menú</strong></h3>
+            <div>
+    <a href="{% static 'pdfs/bebidas.pdf'%}">Bebidas & Tragos</a>
+  </div>
+  <div>
+    <a href="{% static 'pdfs/brunchComida.pdf'%}">Brunch & Comida</a>
+  </div>
+    {% endblock %}
+
+

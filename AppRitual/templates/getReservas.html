@@ -1,0 +1,36 @@
+<div>
+    {% extends "reservaciones.html" %}
+    {% load static %}
+
+    {% block getReserva %}
+        <strong>Consultar Reserva: </strong>
+        <form action="/buscarReservas/" method="GET">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+            <input placeholder="Apellido" type="text" name="Apellido" id="Apellido">
+            <input placeholder="fechaSolicitud" type="text" name="fechaSolicitud" id="fechaSolicitud">
+            <input placeholder="fechaReserva" type="text" name="fechaReserva" id="fechaReserva">
+            <input placeholder="numeroPersonas" type="text" name="numeroPersonas" id="numeroPersonas">
+            <input placeholder="telefono" type="text" name="telefono" id="telefono">
+            <input placeholder="email" type="text" name="email" id="email">
+            <input placeholder="costo" type="text" name="costo" id="costo">
+            <input placeholder="estado" type="text" name="estado" id="estado">
+            <input placeholder="anotaciones" type="text" name="anotaciones" id="anotaciones">
+            <input type="submit" value="Buscar">
+        </form>
+
+        {% if estudiantes %}
+            {% for estudiante in estudiantes %}
+                <li> {{reserva.nombre}} </li>
+                <li> {{reserva.apellido}} </li>
+                <li> {{reserva.fechaSolicitud}}
+                <li> {{reserva.fechaReserva}} </li>
+                <li> {{reserva.numeroPersonas}} </li>
+                <li> {{reserva.telefono}} </li>
+                <li> {{reserva.email}} </li>
+                <li> {{reserva.costo}} </li>
+                <li> {{reserva.estado}} </li>
+                <li> {{reserva.anotaciones}} </li>
+            {% endfor %}
+        {% endif %}
+    {% endblock %}
+</div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bodas & Eventos | AppRitual</title>
+    {% extends "AppRitual/templatePadre.html" %}
+</head>
+<body>
+    {% block welcome_message %}
+    <!-- No se mostrará ningún contenido aquí -->
+    {% endblock %}
+
+    {% block setBodasEventos %}
+        <strong>Crear Evento:</strong>
+        <form action="{% url 'setBodasEventos' %}" method="POST"> {% csrf_token %}
+            <table>
+                {{ miEvento.as_table }}
+            </table>
+            <input type="submit" value="Enviar">
+        </form>
+    {% endblock %}
+
+    {% block getBodasEventos %}
+        <strong>Consultar Evento:</strong>
+        <form action="{% url 'buscarBodasEventos' %}" method="GET">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+            <input type="submit" value="Buscar">
+        </form>
+
+        {% if eventos %}
+            <ul>
+                {% for evento in eventos %}
+                    <li>{{ evento.nombre }}</li>
+                    <li>{{ evento.apellido }}</li>
+                    <li>{{ evento.tipoEvento }}</li>
+                    <li>{{ evento.fechaSolicitud }}</li>
+                    <li>{{ evento.fechaEvento }}</li>
+                    <li>{{ evento.numeroInvitados }}</li>
+                    <li>{{ evento.telefono }}</li>
+                    <li>{{ evento.email }}</li>
+                    <li>{{ evento.duracion }}</li>
+                    <li>{{ evento.costo }}</li>
+                    <li>{{ evento.estado }}</li>
+                    <li>{{ evento.anotaciones }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endblock %}
+</body>
+</html>

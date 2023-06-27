@@ -1,0 +1,14 @@
+<div>
+    {% extends "trabajadores.html" %}
+    {% load static %}
+
+    {% block setTrabajadores %}
+        <strong>Agregar Trabajador: </strong>
+        <form action="/setTrabajadores/" method="POST"> {% csrf_token %}
+            <table>
+                {{ miTrabajador.as_table }}
+            </table>
+            <input type="submit" value="Enviar">
+        </form>
+    {% endblock %}
+</div>

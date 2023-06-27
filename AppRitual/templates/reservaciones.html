@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservaciones | AppRitual</title>
+    {% extends "AppRitual/templatePadre.html" %}
+</head>
+<body>
+    {% block welcome_message %}
+        <!-- No se mostrará ningún contenido aquí -->
+    {% endblock %}
+
+    {% block setReservas %}
+        <strong>Crear Reserva:</strong>
+        <form action="{% url 'setReservas' %}" method="POST"> {% csrf_token %}
+            <table>
+                {{ miReserva.as_table }}
+            </table>
+            <input type="submit" value="Enviar">
+        </form>
+    {% endblock %}
+
+    {% block getReservas %}
+        <strong>Consultar Reserva:</strong>
+        <form action="{% url 'buscarReservas' %}" method="GET">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+            <input type="submit" value="Buscar">
+        </form>
+
+        {% if reservas %}
+            <ul>
+                {% for reserva in reservas %}
+                    <li>{{ reserva.nombre }}</li>
+                    <li>{{ reserva.apellido }}</li>
+                    <li>{{ reserva.fechaSolicitud }}</li>
+                    <li>{{ reserva.fechaReserva }}</li>
+                    <li>{{ reserva.numeroPersonas }}</li>
+                    <li>{{ reserva.telefono }}</li>
+                    <li>{{ reserva.email }}</li>
+                    <li>{{ reserva.costo }}</li>
+                    <li>{{ reserva.estado }}</li>
+                    <li>{{ reserva.anotaciones }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endblock %}
+</body>
+</html>

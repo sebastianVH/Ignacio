@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trabajadores | AppRitual</title>
+    {% extends "AppRitual/templatePadre.html" %}
+</head>
+<body>
+    {% block welcome_message %}
+    <!-- No se mostrará ningún contenido aquí -->
+    {% endblock %}
+
+    {% block setTrabajadores %}
+        <strong>Agregar Trabajador:</strong>
+        <form action="{% url 'setTrabajadores' %}" method="POST"> {% csrf_token %}
+            <table>
+                {{ miTrabajador.as_table }}
+            </table>
+            <input type="submit" value="Enviar">
+        </form>
+    {% endblock %}
+
+    {% block getTrabajadores %}
+        <strong>Filtrar Trabajador:</strong>
+        <form action="{% url 'buscarTrabajadores' %}" method="GET">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+            <input type="submit" value="Buscar">
+        </form>
+
+        {% if trabajadores %}
+            <ul>
+                {% for trabajador in trabajadores %}
+                    <li>{{ trabajador.nombre }}</li>
+                    <li>{{ trabajador.apellido }}</li>
+                    <li>{{ trabajador.sector }}</li>
+                    <li>{{ trabajador.telefono }}</li>
+                    <li>{{ trabajador.email }}</li>
+                    <li>{{ trabajador.fechaContratacion }}</li>
+                    <li>{{ trabajador.salario }}</li>
+                    <li>{{ trabajador.foto_id }}</li>
+                    <li>{{ trabajador.anotaciones }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endblock %}
+</body>
+</html>

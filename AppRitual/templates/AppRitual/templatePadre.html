@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet"  href="{% static 'css/style.css' %}">
+    <link rel="stylesheet"  href="{% static 'js/main.js' %}">
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .col-md-6 {
+            width: 50%;
+            position: relative;
+        }
+
+        .col-md-6::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 80%;
+            background-color: gold;
+        }
+
+        .col-md-6 .info {
+            padding-left: 60px;
+        }
+
+        .col-md-6 h3 {
+            margin-top: 0;
+            padding-left: 20px;
+        }
+
+        #navbar ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+        }
+
+        #navbar ul li {
+            margin-left: 30px;
+        }
+
+        /* New styles */
+        .logo {
+            flex: 0 0 300px;
+        }
+
+        #navbar {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        #navbar ul {
+            margin-right: 30px;
+        }
+
+        .header-divider {
+            height: 2px;
+            background-color: gold;
+            border: none;
+        }
+        .header-bar {
+            height: 2px;
+            background-color: gold;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <div class="logo">
+                <a href="{% url 'inicio' %}">
+                    <img src="{% static 'img/logo.png' %}" alt="Logo Ritual" width="300" height="300">
+            </div>
+            <div class="header-bar"></div>
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'especiales' %}">Especiales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'bodasEventos' %}">Bodas & Eventos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'trabajadores' %}">Trabajadores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'ubicacion' %}">Ubicación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contacto' %}">Contacto & Redes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'reservaciones' %}">Reservaciones</a></li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+
+    {% block welcome_message %}
+    <h1>¡Bienvenidos equipo!</h1>
+    <h2>¡¡¡Esta es nuestra App de trabajo!!!</h2>
+    {% endblock %}
+
+
+    {% block content %}
+        <div class="reservacionFormularios">
+            {% block setReservas %}
+            {% endblock %}
+        </div>
+        <div class="reservacionFormularios">
+            {% block getReservas %}
+            {% endblock %}
+        </div>
+        <div class="eventoFormularios">
+            {% block setBodasEventos %}
+            {% endblock %}
+        </div>
+        <div class="eventoFormularios">
+            {% block getBodasEventos %}
+            {% endblock %}
+        </div>
+        <div class="trabajadorFormularios">
+            {% block setTrabajadores %}
+            {% endblock %}
+        </div>
+        <div class="trabajadorFormularios">
+            {% block getTrabajadores %}
+            {% endblock %}
+        </div>
+
+    {% endblock %}
+
+    <hr class="header-divider">
+
+    <footer>
+        <strong>Gracias por su visita</strong>
+        <div class="container">
+            <div class="col-md-6">
+                <h3 style="color: copper;">Contacto</h3>
+                <p>Dirección: Calle Ignacio Zaragoza No. 22, Tepoztlán, Morelos, México. CP.62520</p>
+                <p>Teléfono: (123) 456-7890</p>
+                <p>Email: info@restaurante.com</p>
+            </div>
+            <div class="col-md-6">
+                <h3 class="info" style="color: copper;">Horarios de atención</h3>
+                <div class="info">
+                    <p>Viernes: 9:00 AM - 08:00 PM</p>
+                    <p>Sábados & Domingos: 09:00 AM - 10:00 PM</p>
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="bottom-bar" style="border-top: 2px solid gold;">
+            <div class="container">
+                <p>&copy; 2023 Restaurante. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

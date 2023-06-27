@@ -1,0 +1,33 @@
+<div>
+    {% extends "trabajadores.html" %}
+    {% load static %}
+
+    {% block getTrabajador %}
+        <strong>Filtrar Trabajador: </strong>
+        <form action="/buscarTrabajadores/" method="GET">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+            <input placeholder="Apellido" type="text" name="Apellido" id="Apellido">
+            <input placeholder="sector" type="text" name="sector" id="sector">
+            <input placeholder="telefono" type="text" name="telefono" id="telefono">
+            <input placeholder="email" type="text" name="email" id="email">
+            <input placeholder="fechaContratacion" type="text" name="fechaContratacion" id="fechaContratacion">
+            <input placeholder="salario" type="text" name="salario" id="salario">
+            <input placeholder="anotaciones" type="text" name="anotaciones" id="anotaciones">
+            <input type="submit" value="Buscar">
+        </form>
+
+        {% if trabajador %}
+            {% for trabajador in trabajadores %}
+               <li>{{ trabajador.nombre }}</li>
+                <li>{{ trabajador.apellido }}</li>
+                <li>{{ trabajador.sector }}</li>
+                <li>{{ trabajador.telefono }}</li>
+                <li>{{ trabajador.email }}</li>
+                <li>{{ trabajador.fechaContratacion }}</li>
+                <li>{{ trabajador.salario }}</li>
+                <li>{{ trabajador.foto_id }}</li>
+                <li>{{ trabajador.anotaciones }}</li>
+            {% endfor %}
+        {% endif %}
+    {% endblock %}
+</div>
