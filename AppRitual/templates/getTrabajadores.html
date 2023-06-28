@@ -3,31 +3,29 @@
     {% load static %}
 
     {% block getTrabajador %}
-        <strong>Filtrar Trabajador: </strong>
+        <h2>Filtrar Trabajador:</h2>
         <form action="/buscarTrabajadores/" method="GET">
             <input placeholder="Nombre" type="text" name="nombre" id="nombre">
             <input placeholder="Apellido" type="text" name="Apellido" id="Apellido">
-            <input placeholder="sector" type="text" name="sector" id="sector">
-            <input placeholder="telefono" type="text" name="telefono" id="telefono">
-            <input placeholder="email" type="text" name="email" id="email">
-            <input placeholder="fechaContratacion" type="text" name="fechaContratacion" id="fechaContratacion">
-            <input placeholder="salario" type="text" name="salario" id="salario">
-            <input placeholder="anotaciones" type="text" name="anotaciones" id="anotaciones">
             <input type="submit" value="Buscar">
         </form>
 
-        {% if trabajador %}
+        {% if trabajadores %}
+            <h2>Información Trabajadores:</h2>
             {% for trabajador in trabajadores %}
-               <li>{{ trabajador.nombre }}</li>
-                <li>{{ trabajador.apellido }}</li>
-                <li>{{ trabajador.sector }}</li>
-                <li>{{ trabajador.telefono }}</li>
-                <li>{{ trabajador.email }}</li>
-                <li>{{ trabajador.fechaContratacion }}</li>
-                <li>{{ trabajador.salario }}</li>
-                <li>{{ trabajador.foto_id }}</li>
-                <li>{{ trabajador.anotaciones }}</li>
+                <ul>
+                    <li><strong>Nombre:</strong> {{ trabajador.nombre }}</li>
+                    <li><strong>Apellido:</strong> {{ trabajador.apellido }}</li>
+                    <li><strong>Sector:</strong> {{ trabajador.sector }}</li>
+                    <li><strong>Teléfono:</strong> {{ trabajador.telefono }}</li>
+                    <li><strong>Email:</strong> {{ trabajador.email }}</li>
+                    <li><strong>Fecha Contratación:</strong> {{ trabajador.fechaContratacion }}</li>
+                    <li><strong>Salario:</strong> {{ trabajador.salario }}</li>
+                    <li><strong>Anotaciones:</strong> {{ trabajador.anotaciones }}</li>
+                </ul>
             {% endfor %}
+        {% else %}
+            <p>No se encontró ese trabajador.</p>
         {% endif %}
     {% endblock %}
 </div>

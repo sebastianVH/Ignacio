@@ -35,10 +35,6 @@ def especiales(request):
 def bodasEventos(request):
     return render(request, "bodasEventos.html", {"miEvento": eventoFormularios()})
 
-# Con trabajadores podemos hacer lo mismo que en bodas y reservaciones
-# Agregando {"miTrabajador": trabajadorFormularios()} podemos hacer que se rendericen
-# los campos del fom. El guardado y la búsqueda funcionan correctamente
-
 
 def trabajadores(request):
     return render(request, "trabajadores.html",  {"miTrabajador": trabajadorFormularios()})
@@ -53,8 +49,7 @@ def setReservas(request):
         miReserva = reservacionFormularios(request.POST)
         if miReserva.is_valid():
             data = miReserva.cleaned_data
-            reserva = ReservasMesa(nombre=data["nombre"], apellido=data["apellido"], fechaSolicitud=data["fechaSolicitud"], fechaReserva=data["fechaReserva"],
-                                   numeroPersonas=data["numeroPersonas"], telefono=data["telefono"], email=data["email"], costo=data["costo"], estado=data["estado"], anotaciones=data["anotaciones"])
+            reserva = ReservasMesa(nombre=data["nombre"], apellido=data["apellido"], fechaSolicitud=data["fechaSolicitud"], fechaReserva=data["fechaReserva"], numeroPersonas=data["numeroPersonas"], telefono=data["telefono"], email=data["email"], costo=data["costo"], estado=data["estado"], anotaciones=data["anotaciones"])
             reserva.save()
             return render(request, "AppRitual/templatePadre.html")
     else:
@@ -111,7 +106,8 @@ def buscarBodasEventos(request):
     if nombre:
         eventos = Evento.objects.filter(nombre__icontains=nombre)
     else:
-        eventos = Evento.objects.all()
+        respuesta = "No se enviaron datos."
+        return HttpResponse(respuesta)
     return render(request, "bodasEventos.html", {"eventos": eventos})
 
 

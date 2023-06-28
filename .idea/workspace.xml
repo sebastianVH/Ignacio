@@ -5,23 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7fe4aa2-dc96-40b8-b7d7-2a5985e58e86" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/restauranteRitual.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/templates/AppRitual/templatePadre.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/AppRitual/templatePadre.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppRitual/templates/bodasEventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/bodasEventos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/templates/contacto.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/contacto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/templates/especiales.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/especiales.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/templates/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/menu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/templates/reservaciones.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/reservaciones.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/templates/trabajadores.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/trabajadores.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/templates/ubicacion.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/ubicacion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/getBodasEventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/getBodasEventos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/getReservas.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/getReservas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/getTrabajadores.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/getTrabajadores.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppRitual/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restauranteRitualAdmin/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/restauranteRitualAdmin/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +35,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "C:/Users/HP/Cursada/terceraPreEntrega-IgnacioAgustinGonzalez"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "HTML",
+      "Python"
+    ]
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

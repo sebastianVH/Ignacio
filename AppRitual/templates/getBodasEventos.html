@@ -3,38 +3,33 @@
     {% load static %}
 
     {% block getBodasEventos %}
-        <strong>Consultar Evento: </strong>
-        <form action="{% url 'getBodasEventos' %}" method="GET">
-            <input placeholder="nombre" type="text" name="nombre" id="nombre">
-            <input placeholder="apellido" type="text" name="Apellido" id="Apellido">
-            <input placeholder="tipoEvento" type="text" name="tipoEvento" id="tipoEvento">
-            <input placeholder="fechaSolicitud" type="text" name="fechaSolicitud" id="fechaSolicitud">
-            <input placeholder="fechaEvento" type="text" name="fechaEvento" id="fechaEvento">
-            <input placeholder="numeroInvitados" type="text" name="numeroInvitados" id="numeroInvitados">
-            <input placeholder="telefono" type="text" name="telefono" id="telefono">
-            <input placeholder="email" type="text" name="email" id="email">
-            <input placeholder="duracion" type="text" name="duracion" id="duracion">
-            <input placeholder="costo" type="text" name="costo" id="costo">
-            <input placeholder="estado" type="text" name="estado" id="estado">
-            <input placeholder="anotaciones" type="text" name="anotaciones" id="anotaciones">
+        <strong>Consultar Evento:</strong>
+        <form action="/buscarEventos/" method="GET">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+            <input placeholder="Apellido" type="text" name="Apellido" id="Apellido">
             <input type="submit" value="Buscar">
         </form>
 
         {% if eventos %}
+            <strong>Datos del evento:</strong>
             {% for evento in eventos %}
-                <li> {{reserva.nombre}} </li>
-                <li> {{reserva.apellido}} </li>
-                <li> {{reserva.tipoEvento}} </li>
-                <li> {{reserva.fechaSolicitud}}
-                <li> {{reserva.fechaEvento}} </li>
-                <li> {{reserva.numeroInvitados}} </li>
-                <li> {{reserva.telefono}} </li>
-                <li> {{reserva.email}} </li>
-                <li> {{reserva.duracion}} </li>
-                <li> {{reserva.costo}} </li>
-                <li> {{reserva.estado}} </li>
-                <li> {{reserva.anotaciones}} </li>
+                <ul>
+                    <li><strong>Nombre:</strong> {{ evento.nombre }}</li>
+                    <li><strong>Apellido:</strong> {{ evento.apellido }}</li>
+                    <li><strong>Tipo de Evento:</strong> {{ evento.tipoEvento }}</li>
+                    <li><strong>Fecha de Solicitud:</strong> {{ evento.fechaSolicitud }}</li>
+                    <li><strong>Fecha del Evento:</strong> {{ evento.fechaEvento }}</li>
+                    <li><strong>Número de Invitados:</strong> {{ evento.numeroInvitados }}</li>
+                    <li><strong>Teléfono:</strong> {{ evento.telefono }}</li>
+                    <li><strong>Email:</strong> {{ evento.email }}</li>
+                    <li><strong>Duración:</strong> {{ evento.duracion }}</li>
+                    <li><strong>Costo:</strong> {{ evento.costo }}</li>
+                    <li><strong>Estado:</strong> {{ evento.estado }}</li>
+                    <li><strong>Anotaciones:</strong> {{ evento.anotaciones }}</li>
+                </ul>
             {% endfor %}
+        {% else %}
+            <p>No se encontraron eventos.</p>
         {% endif %}
     {% endblock %}
 </div>

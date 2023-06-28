@@ -2,35 +2,32 @@
     {% extends "reservaciones.html" %}
     {% load static %}
 
-    {% block getReserva %}
-        <strong>Consultar Reserva: </strong>
+    {% block getReservas %}
+        <h2>Consultar Reserva:</h2>
         <form action="/buscarReservas/" method="GET">
             <input placeholder="Nombre" type="text" name="nombre" id="nombre">
             <input placeholder="Apellido" type="text" name="Apellido" id="Apellido">
-            <input placeholder="fechaSolicitud" type="text" name="fechaSolicitud" id="fechaSolicitud">
-            <input placeholder="fechaReserva" type="text" name="fechaReserva" id="fechaReserva">
-            <input placeholder="numeroPersonas" type="text" name="numeroPersonas" id="numeroPersonas">
-            <input placeholder="telefono" type="text" name="telefono" id="telefono">
-            <input placeholder="email" type="text" name="email" id="email">
-            <input placeholder="costo" type="text" name="costo" id="costo">
-            <input placeholder="estado" type="text" name="estado" id="estado">
-            <input placeholder="anotaciones" type="text" name="anotaciones" id="anotaciones">
             <input type="submit" value="Buscar">
         </form>
 
-        {% if estudiantes %}
-            {% for estudiante in estudiantes %}
-                <li> {{reserva.nombre}} </li>
-                <li> {{reserva.apellido}} </li>
-                <li> {{reserva.fechaSolicitud}}
-                <li> {{reserva.fechaReserva}} </li>
-                <li> {{reserva.numeroPersonas}} </li>
-                <li> {{reserva.telefono}} </li>
-                <li> {{reserva.email}} </li>
-                <li> {{reserva.costo}} </li>
-                <li> {{reserva.estado}} </li>
-                <li> {{reserva.anotaciones}} </li>
+        {% if reservas %}
+            <h2>Datos de la reserva:</h2>
+            {% for reserva in reservas %}
+                <ul>
+                    <li><strong>Nombre:</strong> {{ reserva.nombre }}</li>
+                    <li><strong>Apellido:</strong> {{ reserva.apellido }}</li>
+                    <li><strong>Fecha Solicitud:</strong> {{ reserva.fechaSolicitud }}</li>
+                    <li><strong>Fecha Reserva:</strong> {{ reserva.fechaReserva }}</li>
+                    <li><strong>Cantidad Personas:</strong> {{ reserva.numeroPersonas }}</li>
+                    <li><strong>Teléfono:</strong> {{ reserva.telefono }}</li>
+                    <li><strong>Email:</strong> {{ reserva.email }}</li>
+                    <li><strong>Costo:</strong> {{ reserva.costo }}</li>
+                    <li><strong>Estado:</strong> {{ reserva.estado }}</li>
+                    <li><strong>Anotaciones:</strong> {{ reserva.anotaciones }}</li>
+                </ul>
             {% endfor %}
+        {% else %}
+            <p>No se encontraron reservas.</p>
         {% endif %}
     {% endblock %}
 </div>
