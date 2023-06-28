@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7fe4aa2-dc96-40b8-b7d7-2a5985e58e86" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/templates/bodasEventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/bodasEventos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/templates/getBodasEventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/getBodasEventos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/templates/getReservas.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/getReservas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/templates/getTrabajadores.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/getTrabajadores.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restauranteRitualAdmin/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/restauranteRitualAdmin/settings.py" afterDir="false" />
-    </list>
+    <list default="true" id="a7fe4aa2-dc96-40b8-b7d7-2a5985e58e86" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
