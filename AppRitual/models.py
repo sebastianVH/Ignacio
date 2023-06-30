@@ -9,7 +9,7 @@ class Trabajadore(models.Model):
     email = models.EmailField()
     fechaContratacion = models.DateField(verbose_name="Fecha Contratación")
     salario = models.IntegerField()
-    foto_id = models.ImageField(upload_to='fotos_id/', blank=True) # Campo no obligatorio para agilizar el proceso, ya que es una app de prueba. (La foto todavía no se visualiza)
+    foto_id = models.ImageField(upload_to='fotos_id', blank=True) # Campo no obligatorio para agilizar el proceso, ya que es una app de prueba. (La foto todavía no se visualiza)
     anotaciones = models.TextField(blank=True, verbose_name="Anotaciones(opcionales)")
 
     def __str__(self):

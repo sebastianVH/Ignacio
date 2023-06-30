@@ -3,12 +3,12 @@
     {% load static %}
 
     {% block setReservas %}
-        <strong>Crear Reserva: </strong>
+        <h3 style="color: #b8860b;">Crear Reserva:</h3>
         <form action="/setReservas/" method="POST"> {% csrf_token %}
             <table>
                 {{ miReserva.as_table }}
             </table>
-            <input type="submit" value="Enviar">
+            <input type="submit" value="Agregar">
         </form>
     {% endblock %}
 </div>

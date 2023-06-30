@@ -4,11 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7fe4aa2-dc96-40b8-b7d7-2a5985e58e86" name="Changes" comment="" />
+    <list default="true" id="a7fe4aa2-dc96-40b8-b7d7-2a5985e58e86" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/AppRitual/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AppRitual/templates/registro.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/Diego.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/AppRitual/templatePadre.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/AppRitual/templatePadre.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/bodasEventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/bodasEventos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/contacto.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/contacto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/especiales.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/presentaciones.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/getBodasEventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/getBodasEventos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/getReservas.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/getReservas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/getTrabajadores.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/getTrabajadores.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/reservaciones.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/reservaciones.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/setBodasEventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/setBodasEventos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/setReservas.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/setReservas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/setTrabajadores.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/setTrabajadores.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/trabajadores.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/trabajadores.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/ubicacion.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restauranteRitualAdmin/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/restauranteRitualAdmin/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/ubicacion.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/pdfs/bebidas.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/pdfs/boda.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/pdfs/brunchComida.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/pdfs/cenaRomantica.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/pdfs/cumple.pdf" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -17,15 +56,19 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Rnt8zB0aherWfeIk88YFioFani" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/HP/Cursada/terceraPreEntrega-IgnacioAgustinGonzalez"
+    "last_opened_file_path": "C:/Users/HP/Cursada/terceraPreEntrega-IgnacioAgustinGonzalez/static/img"
   },
   "keyToStringList": {
     "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
@@ -34,6 +77,11 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Cursada\terceraPreEntrega-IgnacioAgustinGonzalez\static\img" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

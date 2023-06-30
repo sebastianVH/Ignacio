@@ -2,7 +2,7 @@
     {% extends "trabajadores.html" %}
     {% load static %}
 
-    {% block getTrabajador %}
+    {% block getTrabajadores %}
         <h2>Filtrar Trabajador:</h2>
         <form action="/buscarTrabajadores/" method="GET">
             <input placeholder="Nombre" type="text" name="nombre" id="nombre">
@@ -10,7 +10,7 @@
         </form>
 
         {% if trabajadores %}
-            <h2>Información Trabajadores:</h2>
+                <h2 style="color: #b8860b;">Información Trabajadores:</h2>
             {% for trabajador in trabajadores %}
                 <ul>
                     <li><strong>Nombre:</strong> {{ trabajador.nombre }}</li>
@@ -20,6 +20,9 @@
                     <li><strong>Email:</strong> {{ trabajador.email }}</li>
                     <li><strong>Fecha Contratación:</strong> {{ trabajador.fechaContratacion }}</li>
                     <li><strong>Salario:</strong> {{ trabajador.salario }}</li>
+                    <li><strong>ID:</strong> {{ trabajador.foto_id.url }}</li>
+                    <li><strong>ID:</strong> <img src="/media{{ trabajador.foto_id.url }}" alt="id"></li>
+                    <!--<img src="{{trabajador.foto_id.url}}" alt="id" class="centered-image">-->
                     <li><strong>Anotaciones:</strong> {{ trabajador.anotaciones }}</li>
                 </ul>
             {% endfor %}

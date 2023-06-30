@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}{% endblock %}
+    {% load static %}
+    <link rel="stylesheet"  href="{% static 'css/style.css' %}">
+    <link rel="stylesheet"  href="{% static 'js/main.js' %}">
+    <title>Login Ritual</title>
+</head>
+<body>
+    <div class="containerForm">
+        <form action="" method="POST" class="formLogin"> {% csrf_token %}
+            <h3 style="color: white; font-weight:bold; margin-bottom: 30px; display: flex; justify-content: center; align-items: center;">LOGIN RITUAL</h3>
+            <div>
+                <input name="user" type="text" placeholder="User" class="inputLogin">
+            </div>
+            <div>
+                <input name="password" type="password" placeholder="Password" class="inputLogin">
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+            {% if error %}
+                <p style="color: red;">{{error}}</p>
+            {% endif %}
+            <p>¿Aún no tienes una cuenta? <a href="registro">Regístrate</a></p>
+        </form>
+    </div>
+</body>
+</html>

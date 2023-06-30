@@ -11,8 +11,8 @@
     {% endblock %}
 
     {% block setTrabajadores %}
-        <strong>Agregar Trabajador:</strong>
-        <form action="{% url 'setTrabajadores' %}" method="POST"> {% csrf_token %}
+        <h3 style="color: #b8860b;">Agregar Trabajador:</h3>
+        <form action="{% url 'setTrabajadores' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
             <table>
                 {{ miTrabajador.as_table }}
             </table>
@@ -21,9 +21,9 @@
     {% endblock %}
 
     {% block getTrabajadores %}
-        <strong>Filtrar Trabajador:</strong>
+        <h3 style="color: #b8860b;">Filtrar Trabajadores:</h3>
         <form action="{% url 'buscarTrabajadores' %}" method="GET">
-            <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre" required>
             <input type="submit" value="Buscar">
         </form>
 

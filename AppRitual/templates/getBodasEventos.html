@@ -5,12 +5,12 @@
     {% block getBodasEventos %}
         <strong>Consultar Evento:</strong>
         <form action="/buscarEventos/" method="GET">
-            <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre" required>
             <input type="submit" value="Buscar">
         </form>
 
         {% if eventos %}
-            <strong>Datos del evento:</strong>
+                <h2 style="color: #b8860b;">Datos del Evento:</h2>
             {% for evento in eventos %}
                 <ul>
                     <li><strong>Nombre:</strong> {{ evento.nombre }}</li>

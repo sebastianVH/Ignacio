@@ -12,7 +12,7 @@
     {% endblock %}
 
     {% block setBodasEventos %}
-        <strong>Crear Evento:</strong>
+        <h3 style="color: #b8860b;">Crear Evento:</h3>
         <form action="{% url 'setBodasEventos' %}" method="POST"> {% csrf_token %}
             <table>
                 {{ miEvento.as_table }}
@@ -22,9 +22,9 @@
     {% endblock %}
 
     {% block getBodasEventos %}
-        <strong>Consultar Evento:</strong>
+        <h3 style="color: #b8860b;">Consultar Eventos:</h3>
         <form action="{% url 'buscarBodasEventos' %}" method="GET">
-            <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre" required>
             <input type="submit" value="Buscar">
         </form>
 

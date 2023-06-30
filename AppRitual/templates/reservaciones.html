@@ -11,7 +11,7 @@
     {% endblock %}
 
     {% block setReservas %}
-        <strong>Crear Reserva:</strong>
+        <h3 style="color: #b8860b;">Crear Reserva:</h3>
         <form action="{% url 'setReservas' %}" method="POST"> {% csrf_token %}
             <table>
                 {{ miReserva.as_table }}
@@ -21,9 +21,9 @@
     {% endblock %}
 
     {% block getReservas %}
-        <strong>Consultar Reserva:</strong>
+        <h3 style="color: #b8860b;">Agregar Reservación:</h3>
         <form action="{% url 'buscarReservas' %}" method="GET">
-            <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre" required>
             <input type="submit" value="Buscar">
         </form>
 

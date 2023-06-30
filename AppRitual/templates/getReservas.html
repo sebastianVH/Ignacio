@@ -5,12 +5,12 @@
     {% block getReservas %}
         <h2>Consultar Reserva:</h2>
         <form action="/buscarReservas/" method="GET">
-            <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre" required>
             <input type="submit" value="Buscar">
         </form>
 
         {% if reservas %}
-            <h2>Datos de la reserva:</h2>
+                <h2 style="color: #b8860b;">Datos de Reservas:</h2>
             {% for reserva in reservas %}
                 <ul>
                     <li><strong>Nombre:</strong> {{ reserva.nombre }}</li>

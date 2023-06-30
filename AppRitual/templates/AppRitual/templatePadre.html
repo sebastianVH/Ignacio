@@ -81,26 +81,34 @@
         <div class="container px-4 px-lg-5">
             <div class="logo">
                 <a href="{% url 'inicio' %}">
-                    <img src="{% static 'img/logo.png' %}" alt="Logo Ritual" width="300" height="300">
+                    <img src="{% static 'img/logo.png' %}" alt="Logo Ritual" width="150" height="75">
+                </a>
             </div>
             <div class="header-bar"></div>
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'especiales' %}">Especiales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}">Menú</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'presentaciones' %}">Presentaciones</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'bodasEventos' %}">Bodas & Eventos</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'trabajadores' %}">Trabajadores</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'ubicacion' %}">Ubicación</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'contacto' %}">Contacto & Redes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'reservaciones' %}">Reservaciones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'reservaciones' %}" style="background-color: #ffd700; color: black; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; text-transform: uppercase;">Reservaciones</a>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+
                 </ul>
             </nav>
-        </div>
-    </nav>
+            </div>
+        <div class="bottom-bar" style="border-top: 2px solid gold;">
+            <div class="container"></div>
 
     {% block welcome_message %}
-    <h1>¡Bienvenidos equipo!</h1>
-    <h2>¡¡¡Esta es nuestra App de trabajo!!!</h2>
+    <div class="centered-content">
+        <h1>¡Bienvenidos equipo!</h1>
+        <h2>¡¡¡Esta es nuestra App de trabajo!!!</h2>
+    </div>
+    <div>
+        <img src="{% static 'img/inicio2.png' %}" alt="inicio" class="centered-image">
+    </div>
     {% endblock %}
 
 
@@ -135,7 +143,6 @@
     <hr class="header-divider">
 
     <footer>
-        <strong>Gracias por su visita</strong>
         <div class="container">
             <div class="col-md-6">
                 <h3 style="color: copper;">Contacto</h3>
