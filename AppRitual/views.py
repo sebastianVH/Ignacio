@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -130,7 +130,7 @@ def loginWeb(request):
         user = authenticate(username=request.POST['user'], password=request.POST['password'])
         if user is not None:
             login(request, user)
-            return render(request, "AppRitual/templatePadre.html")
+            return redirect("inicio")
         else:
             return render(request, 'login.html', {'error': 'Usuario o contraseña incorrectos'})
     else:
@@ -142,7 +142,7 @@ def registro(request):
         userCreate = UserCreationForm(request.POST)
         if userCreate is not None:
             userCreate.save()
-            return render(request, 'login.html')
+            return redirect(request, 'login.html')
     else:
         return render(request, 'registro.html')
 
