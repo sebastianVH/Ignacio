@@ -22,5 +22,6 @@ urlpatterns = [
     path('', loginWeb, name='login'),
     path('registro/', registro, name='registro'),
     path('', LogoutView.as_view(template_name="login.html"), name="logout"),
-
+    path('contactar/', contactar, name='contactar'),
+    path('contactarExitoso', contactarExitoso, name='contactarExitoso'),
 ]

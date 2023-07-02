@@ -20,9 +20,12 @@
                     <li><strong>Email:</strong> {{ trabajador.email }}</li>
                     <li><strong>Fecha Contratación:</strong> {{ trabajador.fechaContratacion }}</li>
                     <li><strong>Salario:</strong> {{ trabajador.salario }}</li>
-                    <li><strong>ID:</strong> <img src="{{ trabajador.foto_id.url }}" alt="id"></li>
-                    <!--<img src="{{trabajador.foto_id.url}}" alt="id" class="centered-image">-->
                     <li><strong>Anotaciones:</strong> {{ trabajador.anotaciones }}</li>
+                    <li><strong>ID:</strong>
+                        <a href="{{ trabajador.foto_id.url }}" target="_blank">
+                            <img src="{{ trabajador.foto_id.url }}" alt="id" style="width: 200px; height: 100px; object-fit: cover;">
+                        </a>
+                    </li>
                 </ul>
             {% endfor %}
         {% else %}

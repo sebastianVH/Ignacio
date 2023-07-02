@@ -145,3 +145,9 @@ def registro(request):
             return redirect(request, 'login.html')
     else:
         return render(request, 'registro.html')
+
+def contactar(request):
+    return render(request, "contactar.html")
+
+def contactarExitoso(request):
+    return render(request, "contactarExitoso.html")
