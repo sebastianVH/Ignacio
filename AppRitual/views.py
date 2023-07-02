@@ -73,6 +73,7 @@ def setBodasEventos(request):
             nombre = data["nombre"]
             apellido = data["apellido"]
             tipoEvento = data["tipoEvento"]
+            privado = data["privado"]
             fechaSolicitud = data["fechaSolicitud"]
             fechaEvento = data["fechaEvento"]
             numeroInvitados = data["numeroInvitados"]
@@ -82,8 +83,7 @@ def setBodasEventos(request):
             costo = data["costo"]
             estado = data["estado"]
             anotaciones = data["anotaciones"]
-            evento = Evento(nombre=nombre, apellido=apellido, tipoEvento=tipoEvento, fechaSolicitud=fechaSolicitud, fechaEvento=fechaEvento,
-                            numeroInvitados=numeroInvitados, telefono=telefono, email=email, duracion=duracion, costo=costo, estado=estado, anotaciones=anotaciones)
+            evento = Evento(nombre=nombre, apellido=apellido, tipoEvento=tipoEvento, privado=privado, fechaSolicitud=fechaSolicitud, fechaEvento=fechaEvento, numeroInvitados=numeroInvitados, telefono=telefono, email=email, duracion=duracion, costo=costo, estado=estado, anotaciones=anotaciones)
             evento.save()
             return render(request, "AppRitual/templatePadre.html")
         else:
@@ -145,4 +145,3 @@ def registro(request):
             return redirect(request, 'login.html')
     else:
         return render(request, 'registro.html')
-
