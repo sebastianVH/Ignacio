@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a7fe4aa2-dc96-40b8-b7d7-2a5985e58e86" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/templates/AppRitual/templatePadre.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/AppRitual/templatePadre.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/reg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/contactar.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/contactar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -24,9 +24,9 @@
                 <input name="password2" type="password" placeholder="Password Confirmation" class="inputLogin">
             </div>
             <div>
-                <button class="btn btn-primary" type="submit">Registrar</button>
+                <button class="btn btn-primary" type="submit" style="background-color: #ffd700; color: black; padding: 10px 20px; border-radius: 5px; font-weight: bold; text-transform: uppercase; display: inline-block;"> Registrar</button>
             </div>
-            <p style="color: white;">Ya tienes una cuenta? <a href="login">Iniciar sesión</a></p>
+            <p style="color: white;">Ya tienes una cuenta? <a href="{% url 'login' %}">Iniciar sesión</a></p>
         </form>
     </div>
 </body>
