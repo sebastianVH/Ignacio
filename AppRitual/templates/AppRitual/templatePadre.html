@@ -12,6 +12,7 @@
         .container {
             display: flex;
             justify-content: space-between;
+            margin-top: 8px;
         }
 
         .col-md-6 {
@@ -70,34 +71,53 @@
             background-color: gold;
             border: none;
         }
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        .topheader-bar {
+            border-top: 1px solid #383636;
+</style>
+
     </style>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+<body>   <!--Top Header-->
+     <header class="header">
+            <button style="width: 100px; border: none; border-radius: 30%; display: flex; justify-content: center; align-items: center; background: inherit;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#ffd700">
+                            <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.22 0-10 1.61-10 4v2h20v-2c0-2.39-6.78-4-10-4zm0-9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 5c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+                        </svg>
+            </button>
+                <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.22 0-10 1.61-10 4v2h20v-2c0-2.39-6.78-4-10-4zm0-9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 5c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+            </svg>
+        </button>
+        <ul class="nav">
+            <a class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><strong>Logout</strong></a>
+        </ul>
+    </header>
+
+    <div class="divider"></div>
+        <div class="topheader-bar"></div>
+
+        <!--Header-->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
         <div class="container px-4 px-lg-5">
             <div class="logo">
                 <a href="{% url 'inicio' %}">
-                    <img src="{% static 'img/logo.png' %}" alt="Logo Ritual" width="150" height="75">
+                    <img src="{% static 'img/logo.png' %}" alt="Logo Ritual" width="100" height="50">
                 </a>
             </div>
             <div class="header-bar"></div>
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}">Menú</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'presentaciones' %}">Presentaciones</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'bodasEventos' %}">Bodas & Eventos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'trabajadores' %}">Trabajadores</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'contacto' %}">Contacto & Redes</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'reservaciones' %}" style="background-color: #ffd700; color: black; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; text-transform: uppercase;">Reservaciones</a>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
-                    <button style="width: 100px; height: 100px; border: none; border-radius: 30%; display: flex; justify-content: center; align-items: center; background: inherit;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#ffd700">
-                            <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.22 0-10 1.61-10 4v2h20v-2c0-2.39-6.78-4-10-4zm0-9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zm0 5c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
-                        </svg>
-                    </button>
-
-
+                    <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}" style="font-size: 15px;"><strong>Menú</strong></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'presentaciones' %}" style="font-size: 15px;"><strong>Presentaciones</strong></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'bodasEventos' %}" style="font-size: 15px;"><strong>Bodas & Eventos</strong></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'trabajadores' %}" style="font-size: 15px;"><strong>Trabajadares</strong></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contacto' %}" style="font-size: 15px;"><strong>Contactos & Redes</strong></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'reservaciones' %}" style="background-color: #ffd700; color: black; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 15px;">Reservaciones</a></li>
                 </ul>
             </nav>
             </div>
@@ -145,6 +165,7 @@
 
     <hr class="header-divider">
 
+        <!--Footer-->
     <footer>  <!--TODOS LOS BOTONES LOS SAQUÉ DE www.getbootstrap.com y les cambié el tamaño y color.-->
 
 <!--Ubicación-->
