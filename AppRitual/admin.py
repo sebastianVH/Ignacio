@@ -8,9 +8,9 @@ class TrabajadoreAdmin(admin.ModelAdmin):
 
 
 class ReservasMesaAdmin(admin.ModelAdmin):
-    list_filter = ("nombre", "apellido", "fechaSolicitud", "fechaReserva", "telefono", "email", "costo", "estado")
-    list_display = ("nombre", "apellido", "fechaSolicitud", "fechaReserva", "telefono", "email", "costo", "estado")
-    search_fields = ("nombre", "apellido", "fechaSolicitud", "fechaReserva", "telefono", "email", "costo", "estado")
+    list_filter = ("nombre", "apellido", "fechaSolicitud", "fechaReserva", "telefono", "email", "estado")
+    list_display = ("nombre", "apellido", "fechaSolicitud", "fechaReserva", "telefono", "email", "estado")
+    search_fields = ("nombre", "apellido", "fechaSolicitud", "fechaReserva", "telefono", "email", "estado")
     date_hierarchy = "fechaReserva"
 
 

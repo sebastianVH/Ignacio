@@ -9,40 +9,56 @@
     {% block welcome_message %}
         <!-- No se mostrará ningún contenido aquí -->
     {% endblock %}
-
-    {% block setReservas %}
-        <h3 style="color: #b8860b;">Crear Reserva:</h3>
-        <form action="{% url 'setReservas' %}" method="POST"> {% csrf_token %}
-            <table>
-                {{ miReserva.as_table }}
-            </table>
-            <input type="submit" value="Enviar">
-        </form>
-    {% endblock %}
-
     {% block getReservas %}
-        <h3 style="color: #b8860b;">Agregar Reservación:</h3>
-        <form action="{% url 'buscarReservas' %}" method="GET">
-            <input placeholder="Nombre" type="text" name="nombre" id="nombre" required>
-            <input type="submit" value="Buscar">
-        </form>
 
+    <h3 style="color: #b8860b;">Reservaciones:</h3>
+     <form action="{% url 'buscarReservas' %}" method="GET">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre" required>
+            <input type="submit" value="Buscar" style="background-color: #ffd700; color: black; padding: 10px 20px; border-radius: 5px; font-size: 11px; font-weight: bold; text-transform: uppercase; border: none; cursor: pointer;">
+
+     </form>
         {% if reservas %}
             <ul>
                 {% for reserva in reservas %}
                     <li>{{ reserva.nombre }}</li>
-                    <li>{{ reserva.apellido }}</li>
-                    <li>{{ reserva.fechaSolicitud }}</li>
-                    <li>{{ reserva.fechaReserva }}</li>
-                    <li>{{ reserva.numeroPersonas }}</li>
-                    <li>{{ reserva.telefono }}</li>
-                    <li>{{ reserva.email }}</li>
-                    <li>{{ reserva.costo }}</li>
-                    <li>{{ reserva.estado }}</li>
-                    <li>{{ reserva.anotaciones }}</li>
                 {% endfor %}
             </ul>
         {% endif %}
+
+        <table id = "table">
+            <tr id="tituloTablaReservas">
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>F. Solicitud</th>
+                <th>Fecha</th>
+                <th>Cant. Personas</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Estado</th>
+                <th>Anotaciones</th>
+            </tr>
+                {% for reserva in Reservaciones %}
+                    <tr>
+                        <td>{{ reserva.nombre }}</td>
+                        <td>{{ reserva.apellido }}</td>
+                        <td><span style="color: #b8860b;">{{ reserva.fechaSolicitud|date:"d/m/Y" }}</span></td>
+                        <td>{{ reserva.fechaReserva|date:"d/m/Y" }}</td>
+                        <td>{{ reserva.numeroPersonas }}</td>
+                        <td>{{ reserva.telefono }}</td>
+                        <td><span style="color: #b8860b;">{{ reserva.email }}</span></td>
+                        <td>
+                            {% if reserva.estado %}
+                                <span style="color: green;">✔</span>
+                            {% else %}
+                                <span style="color: red;">✘</span>
+                            {% endif %}
+                        </td>
+                        <td><span style="color: #b8860b;">{{ reserva.anotaciones }}</span></td>
+                    </tr>
+                {% endfor %}
+        </table>
+
+
     {% endblock %}
 </body>
 </html>

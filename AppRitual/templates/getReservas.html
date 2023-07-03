@@ -3,7 +3,7 @@
     {% load static %}
 
     {% block getReservas %}
-        <h2>Consultar Reserva:</h2>
+        <h2 style="color: #b8860b;">Buscar Reserva:</h2>
         <form action="/buscarReservas/" method="GET">
             <input placeholder="Nombre" type="text" name="nombre" id="nombre" required>
             <input type="submit" value="Buscar">
@@ -20,7 +20,6 @@
                     <li><strong>Cantidad Personas:</strong> {{ reserva.numeroPersonas }}</li>
                     <li><strong>Teléfono:</strong> {{ reserva.telefono }}</li>
                     <li><strong>Email:</strong> {{ reserva.email }}</li>
-                    <li><strong>Costo:</strong> {{ reserva.costo }}</li>
                     <li><strong>Estado:</strong> {{ reserva.estado }}</li>
                     <li><strong>Anotaciones:</strong> {{ reserva.anotaciones }}</li>
                 </ul>

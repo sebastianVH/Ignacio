@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .forms import reservacionFormularios, eventoFormularios, trabajadorFormularios
 from .models import Trabajadore, Evento, ReservasMesa
+from datetime import date
 
 @login_required()
 def inicio(request):
@@ -19,7 +20,8 @@ def contacto(request):
 
 @login_required()
 def reservaciones(request):
-    return render(request, "reservaciones.html", {"miReserva": reservacionFormularios()})
+    Reservaciones = ReservasMesa.objects.all()
+    return render(request, "reservaciones.html", {"Reservaciones": Reservaciones})
 
 @login_required()
 def presentaciones(request):
@@ -31,7 +33,8 @@ def bodasEventos(request):
 
 @login_required()
 def trabajadores(request):
-    return render(request, "trabajadores.html",  {"miTrabajador": trabajadorFormularios()})
+    Trabajadores = Trabajadore.objects.all()
+    return render(request, "trabajadores.html", {"Trabajadores": Trabajadores})
 
 @login_required()
 def getReservas(request):
@@ -39,17 +42,20 @@ def getReservas(request):
 
 @login_required()
 def setReservas(request):
+    Reservaciones = ReservasMesa.objects.all()
+
     if request.method == 'POST':
         miReserva = reservacionFormularios(request.POST)
         if miReserva.is_valid():
             data = miReserva.cleaned_data
-            reserva = ReservasMesa(nombre=data["nombre"], apellido=data["apellido"], fechaSolicitud=data["fechaSolicitud"], fechaReserva=data["fechaReserva"], numeroPersonas=data["numeroPersonas"], telefono=data["telefono"], email=data["email"], costo=data["costo"], estado=data["estado"], anotaciones=data["anotaciones"])
+            reserva = ReservasMesa(nombre=data["nombre"], apellido=data["apellido"], fechaSolicitud=data["fechaSolicitud"], fechaReserva=data["fechaReserva"], numeroPersonas=data["numeroPersonas"], telefono=data["telefono"], email=data["email"], estado=data["estado"], anotaciones=data["anotaciones"])
             reserva.save()
-            return render(request, "AppRitual/templatePadre.html")
+            miReserva = reservacionFormularios()
+            return render(request, "setReservas.html", {"miReserva": miReserva, "Reservaciones": Reservaciones})
     else:
         miReserva = reservacionFormularios()
 
-    return render(request, "setReservas.html", {"miReserva": miReserva})
+    return render(request, "setReservas.html", {"miReserva": miReserva, "Reservaciones": Reservaciones})
 
 @login_required()
 def buscarReservas(request):
@@ -146,8 +152,18 @@ def registro(request):
     else:
         return render(request, 'registro.html')
 
-def contactar(request):
+def contactar(request): # Vista del mail
     return render(request, "contactar.html")
 
-def contactarExitoso(request):
+def contactarExitoso(request): # Vista del mail enviado
     return render(request, "contactarExitoso.html")
+
+def estadoReservas(request):                            # Anular reservas que ya pasaron.
+    reservas = ReservasMesa.objects.all()
+    today = date.today()
+
+    for reserva in reservas:
+        if reserva.fechaReserva.date() < today:
+            reserva.estado = False
+
+    return render(request, 'reservaciones.html', {'reservas': reservas})

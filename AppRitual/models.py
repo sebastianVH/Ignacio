@@ -10,7 +10,7 @@ class Trabajadore(models.Model):
     fechaContratacion = models.DateField(verbose_name="Fecha Contratación")
     salario = models.IntegerField()
     foto_id = models.ImageField(upload_to='fotos_id', blank=True) # Campo no obligatorio para agilizar el proceso, ya que es una app de prueba. (La foto todavía no se visualiza)
-    anotaciones = models.TextField(blank=True, verbose_name="Anotaciones(opcionales)")
+    anotaciones = models.TextField(blank=True, verbose_name="Anotaciones (opcionales)")
 
     def __str__(self):
         return f'{self.nombre} {self.apellido} | {self.sector} | {self.telefono} | {self.email} | Fecha Contratación: {self.fechaContratacion} | Salario: {self.salario} '
@@ -23,9 +23,8 @@ class ReservasMesa(models.Model):
     numeroPersonas = models.IntegerField(verbose_name="Número Personas")
     telefono = models.CharField(max_length=10, verbose_name="Teléfono")
     email = models.EmailField(blank=True, null=True, verbose_name="Email (opcional)")
-    costo = models.IntegerField(blank=True, verbose_name="Costo: (opcional)")
     estado = models.BooleanField(verbose_name="Estado: (activo ✔ / inactivo ✘)")
-    anotaciones = models.TextField(blank=True, verbose_name="Anotaciones(Opcional)")
+    anotaciones = models.TextField(blank=True, verbose_name="Anotaciones (Opcional)")
 
     def __str__(self):
         return f'{self.nombre} {self.apellido} | Fecha Solicitud: {self.fechaSolicitud} | Fecha Reserva: {self.fechaReserva} | Número Personas: {self.numeroPersonas} | {self.telefono} | {self.estado} | '
@@ -45,7 +44,7 @@ class Evento(models.Model):
     duracion = models.DurationField(verbose_name="Duración (horas)")
     costo = models.IntegerField(blank=True, verbose_name="Costo: (opcional)")
     estado = models.BooleanField(verbose_name="Estado (activo ✔ / inactivo ✘)")
-    anotaciones = models.TextField(blank=True, verbose_name="Anotaciones(opcionales)")
+    anotaciones = models.TextField(blank=True, verbose_name="Anotaciones (opcional)")
 
     def __str__(self):
         return f'{self.nombre} {self.apellido} | Tipo: {self.tipoEvento} | Fecha Solicitud: {self.fechaSolicitud} | Fecha Evento: {self.fechaEvento} | Cant. Invitados: {self.numeroInvitados} | {self.telefono} | {self.estado} | Duración: {self.duracion} | Costo: ${self.costo}'
