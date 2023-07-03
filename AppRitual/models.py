@@ -18,16 +18,18 @@ class Trabajadore(models.Model):
 class ReservasMesa(models.Model):
     nombre = models.CharField(max_length=40)
     apellido = models.CharField(max_length=40)
-    fechaSolicitud = models.DateTimeField(verbose_name="Fecha Solicitud")
+    fechaSolicitud = models.DateField(verbose_name="Fecha Solicitud")
     fechaReserva = models.DateTimeField(verbose_name="Fecha Reserva")
+    horaReserva = models.TimeField(verbose_name="Hora Reserva")
     numeroPersonas = models.IntegerField(verbose_name="Número Personas")
     telefono = models.CharField(max_length=10, verbose_name="Teléfono")
     email = models.EmailField(blank=True, null=True, verbose_name="Email (opcional)")
+    costo = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True, verbose_name="Costo (opcional)")
     estado = models.BooleanField(verbose_name="Estado: (activo ✔ / inactivo ✘)")
     anotaciones = models.TextField(blank=True, verbose_name="Anotaciones (Opcional)")
 
     def __str__(self):
-        return f'{self.nombre} {self.apellido} | Fecha Solicitud: {self.fechaSolicitud} | Fecha Reserva: {self.fechaReserva} | Número Personas: {self.numeroPersonas} | {self.telefono} | {self.estado} | '
+        return f'{self.nombre} {self.apellido} | Fecha Solicitud: {self.fechaSolicitud} | Fecha Reserva: {self.fechaReserva} {self.horaReserva} | Número Personas: {self.numeroPersonas} | {self.telefono} | {self.estado} | '
 
 
 class Evento(models.Model):

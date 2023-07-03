@@ -48,7 +48,7 @@ def setReservas(request):
         miReserva = reservacionFormularios(request.POST)
         if miReserva.is_valid():
             data = miReserva.cleaned_data
-            reserva = ReservasMesa(nombre=data["nombre"], apellido=data["apellido"], fechaSolicitud=data["fechaSolicitud"], fechaReserva=data["fechaReserva"], numeroPersonas=data["numeroPersonas"], telefono=data["telefono"], email=data["email"], estado=data["estado"], anotaciones=data["anotaciones"])
+            reserva = ReservasMesa(nombre=data["nombre"], apellido=data["apellido"], fechaSolicitud=data["fechaSolicitud"], fechaReserva=data["fechaReserva"], horaReserva=data["horaReserva"], numeroPersonas=data["numeroPersonas"], telefono=data["telefono"], email=data["email"], estado=data["estado"], anotaciones=data["anotaciones"])
             reserva.save()
             miReserva = reservacionFormularios()
             return render(request, "setReservas.html", {"miReserva": miReserva, "Reservaciones": Reservaciones})
@@ -158,11 +158,11 @@ def contactar(request): # Vista del mail
 def contactarExitoso(request): # Vista del mail enviado
     return render(request, "contactarExitoso.html")
 
-def estadoReservas(request):                            # Anular reservas que ya pasaron.
+def estadoReservas(request):                            # Anular reservas que ya pasaron. ARREGLAR
     reservas = ReservasMesa.objects.all()
     today = date.today()
 
-    for reserva in reservas:
+    for reserva in reservaciones:
         if reserva.fechaReserva.date() < today:
             reserva.estado = False
 

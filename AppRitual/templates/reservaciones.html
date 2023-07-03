@@ -7,7 +7,6 @@
 </head>
 <body>
     {% block welcome_message %}
-        <!-- No se mostrará ningún contenido aquí -->
     {% endblock %}
     {% block getReservas %}
 
@@ -31,6 +30,7 @@
                 <th>Apellido</th>
                 <th>F. Solicitud</th>
                 <th>Fecha</th>
+                <th>Hora</th>
                 <th>Cant. Personas</th>
                 <th>Teléfono</th>
                 <th>Email</th>
@@ -42,7 +42,8 @@
                         <td>{{ reserva.nombre }}</td>
                         <td>{{ reserva.apellido }}</td>
                         <td><span style="color: #b8860b;">{{ reserva.fechaSolicitud|date:"d/m/Y" }}</span></td>
-                        <td>{{ reserva.fechaReserva|date:"d/m/Y" }}</td>
+                        <td>{{ reserva.fechaReserva|date:"d/m/Y H:i A" }}</td>
+                        <td>{{ reserva.horaReserva|time:"h:i A" }}</td>
                         <td>{{ reserva.numeroPersonas }}</td>
                         <td>{{ reserva.telefono }}</td>
                         <td><span style="color: #b8860b;">{{ reserva.email }}</span></td>
@@ -57,8 +58,6 @@
                     </tr>
                 {% endfor %}
         </table>
-
-
     {% endblock %}
 </body>
 </html>
