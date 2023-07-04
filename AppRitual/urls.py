@@ -24,6 +24,4 @@ urlpatterns = [
     path('', LogoutView.as_view(template_name="login.html"), name="logout"),
     path('contactar/', contactar, name='contactar'),
     path('contactarExitoso', contactarExitoso, name='contactarExitoso'),
-    path('mostrarReservasVencidas/', mostrar_reservas_vencidas, name='mostrar_reservas_vencidas'),
-    path('editar_reserva/<int:reserva_id>/', editar_reserva, name='editar_reserva'),
 ]

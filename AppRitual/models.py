@@ -39,6 +39,7 @@ class Evento(models.Model):
     privado = models.BooleanField(verbose_name="Evento Privado (privado ✔ / semiprivado ✘)")
     fechaSolicitud = models.DateTimeField(verbose_name="Fecha Solicitud")
     fechaEvento = models.DateTimeField(verbose_name="Fecha Evento")
+    horaEvento = models.TimeField(verbose_name="Hora Evento")
     numeroInvitados = models.IntegerField(verbose_name="Número Invitados (máx 115)",
         validators=[MaxValueValidator(115)])   # Se importa MaxValueValidator para establecer como tope máximo de invitados.
     telefono = models.CharField(max_length=10, verbose_name="Teléfono")
@@ -49,5 +50,5 @@ class Evento(models.Model):
     anotaciones = models.TextField(blank=True, verbose_name="Anotaciones (opcional)")
 
     def __str__(self):
-        return f'{self.nombre} {self.apellido} | Tipo: {self.tipoEvento} | Fecha Solicitud: {self.fechaSolicitud} | Fecha Evento: {self.fechaEvento} | Cant. Invitados: {self.numeroInvitados} | {self.telefono} | {self.estado} | Duración: {self.duracion} | Costo: ${self.costo}'
+        return f'{self.nombre} {self.apellido} | Tipo: {self.tipoEvento} | Fecha Solicitud: {self.fechaSolicitud} | Fecha Evento: {self.fechaEvento} {self.horaEvento} | Cant. Invitados: {self.numeroInvitados} | {self.telefono} | {self.estado} | Duración: {self.duracion} | Costo: ${self.costo}'
 

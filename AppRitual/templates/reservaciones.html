@@ -8,14 +8,14 @@
 <body>
     {% block welcome_message %}
     {% endblock %}
-    {% block getReservas %}
 
-    <h3 style="color: #b8860b;">Reservaciones:</h3>
-     <form action="{% url 'buscarReservas' %}" method="GET">
+    {% block getReservas %}
+        <h3 style="color: #b8860b;">Reservaciones:</h3>
+        <form action="{% url 'buscarReservas' %}" method="GET">
             <input placeholder="Nombre" type="text" name="nombre" id="nombre" required>
             <input type="submit" value="Buscar" style="background-color: #ffd700; color: black; padding: 10px 20px; border-radius: 5px; font-size: 11px; font-weight: bold; text-transform: uppercase; border: none; cursor: pointer;">
+        </form>
 
-     </form>
         {% if reservas %}
             <ul>
                 {% for reserva in reservas %}
@@ -24,7 +24,7 @@
             </ul>
         {% endif %}
 
-        <table id = "table">
+        <table id="table">
             <tr id="tituloTablaReservas">
                 <th>Nombre</th>
                 <th>Apellido</th>
@@ -36,28 +36,68 @@
                 <th>Email</th>
                 <th>Estado</th>
                 <th>Anotaciones</th>
+                <th>Acciones</th>
             </tr>
-                {% for reserva in Reservaciones %}
-                    <tr>
-                        <td>{{ reserva.nombre }}</td>
-                        <td>{{ reserva.apellido }}</td>
-                        <td><span style="color: #b8860b;">{{ reserva.fechaSolicitud|date:"d/m/Y" }}</span></td>
-                        <td>{{ reserva.fechaReserva|date:"d/m/Y H:i A" }}</td>
-                        <td>{{ reserva.horaReserva|time:"h:i A" }}</td>
-                        <td>{{ reserva.numeroPersonas }}</td>
-                        <td>{{ reserva.telefono }}</td>
-                        <td><span style="color: #b8860b;">{{ reserva.email }}</span></td>
-                        <td>
-                            {% if reserva.estado %}
-                                <span style="color: green;">✔</span>
+            {% for reserva in Reservaciones %}
+                <tr>
+                    <td>{{ reserva.nombre }}</td>
+                    <td>{{ reserva.apellido }}</td>
+                    <td><span style="color: #b8860b;">{{ reserva.fechaSolicitud|date:"d/m/Y" }}</span></td>
+                    <td>
+                            {% if reserva.fechaReserva < now %}
+                                <form method="post" action="{% url 'mostrar_reservas_vencidas' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="reserva_id" value="{{ reserva.id }}">
+                                    <input type="datetime-local" name="nueva_fecha_reserva" value="{{ reserva.fechaReserva|date:'Y-m-d\TH:i' }}">
+                                    <button type="submit">Editar</button>
+                                </form>
                             {% else %}
-                                <span style="color: red;">✘</span>
+                                {{ reserva.fechaReserva }}
+                            {% endif %}
+                    </td>
+                    <td>{{ reserva.horaReserva|time:"h:i A" }}</td>
+                    <td>{{ reserva.numeroPersonas }}</td>
+                    <td>{{ reserva.telefono }}</td>
+                    <td><span style="color: #b8860b;">{{ reserva.email }}</span></td>
+                    <td>
+                        {% if reserva.estado %}
+                            <span style="color: green;">✔</span>
+                        {% else %}
+                            <span style="color: red;">✘</span>
+                        {% endif %}
+                    </td>
+                    <td><span style="color: #b8860b;">{{ reserva.anotaciones }}</span></td>
+                    <td>
+                            {% if reserva.fechaReserva < now %}
+                                {% if reserva.fechaReserva < now %}
+                                    <a href="{% url 'editar_reserva' reserva.id %}">Editar</a>
+                                {% endif %}
                             {% endif %}
                         </td>
-                        <td><span style="color: #b8860b;">{{ reserva.anotaciones }}</span></td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <form action="{% url 'setReservas' %}" method="POST">
+            {% csrf_token %}
+            <table>
+                {% for field in miReserva %}
+                    <tr>
+                        <th>{{ field.label }}</th>
+                        <td>{{ field }}</td>
                     </tr>
                 {% endfor %}
-        </table>
+            </table>
+            <input type="submit" value="Agregar" style="background-color: green; color: white; padding: 10px 20px; border-radius: 5px; font-size: 11px; font-weight: bold; text-transform: uppercase; border: none; cursor: pointer; margin-left: 80%;">
+        </form>
     {% endblock %}
 </body>
 </html>
+
+            <input type="submit" value="Modificar" style="background-color: #ffd700;; color: black; padding: 10px 20px; border-radius: 5px; font-size: 11px; font-weight: bold; text-transform: uppercase; border: none; cursor: pointer; margin-left: 80%;">
+            <input type="submit" value="Eliminar" style="background-color: red;; color: white; padding: 10px 20px; border-radius: 5px; font-size: 11px; font-weight: bold; text-transform: uppercase; border: none; cursor: pointer; margin-left: 80%;">
+
+
+
+            <input type="submit" value="Modificar" style="background-color: #ffd700;; color: black; padding: 10px 20px; border-radius: 5px; font-size: 11px; font-weight: bold; text-transform: uppercase; border: none; cursor: pointer; margin-left: 80%;">
+            <input type="submit" value="Eliminar" style="background-color: red;; color: white; padding: 10px 20px; border-radius: 5px; font-size: 11px; font-weight: bold; text-transform: uppercase; border: none; cursor: pointer; margin-left: 80%;">

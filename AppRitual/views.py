@@ -1,10 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .forms import reservacionFormularios, eventoFormularios, trabajadorFormularios
 from .models import Trabajadore, Evento, ReservasMesa
-from datetime import timezone
 
 @login_required()
 def inicio(request):
@@ -71,6 +70,8 @@ def getBodasEventos(request):
 
 @login_required()
 def setBodasEventos(request):
+    Eventos = Evento.objects.all()
+
     if request.method == 'POST':
         miEvento = eventoFormularios(request.POST)
         print(miEvento)
@@ -82,6 +83,7 @@ def setBodasEventos(request):
             privado = data["privado"]
             fechaSolicitud = data["fechaSolicitud"]
             fechaEvento = data["fechaEvento"]
+            horaEvento = data["horaEvento"]
             numeroInvitados = data["numeroInvitados"]
             telefono = data["telefono"]
             email = data["email"]
@@ -89,13 +91,15 @@ def setBodasEventos(request):
             costo = data["costo"]
             estado = data["estado"]
             anotaciones = data["anotaciones"]
-            evento = Evento(nombre=nombre, apellido=apellido, tipoEvento=tipoEvento, privado=privado, fechaSolicitud=fechaSolicitud, fechaEvento=fechaEvento, numeroInvitados=numeroInvitados, telefono=telefono, email=email, duracion=duracion, costo=costo, estado=estado, anotaciones=anotaciones)
+            evento = Evento(nombre=nombre, apellido=apellido, tipoEvento=tipoEvento, privado=privado, fechaSolicitud=fechaSolicitud, fechaEvento=fechaEvento, horaEvento=horaEvento, numeroInvitados=numeroInvitados, telefono=telefono, email=email, duracion=duracion, costo=costo, estado=estado, anotaciones=anotaciones)
             evento.save()
-            return render(request, "AppRitual/templatePadre.html")
+            miEvento = eventoFormularios()
+            return render(request, "bodasEventos.html", {"miEvento": miEvento, "Eventos": Eventos})
         else:
             print(miEvento.errors)
     miEvento = eventoFormularios()
-    return render(request, "bodasEventos.html", {"miEvento": miEvento})
+    return render(request, "bodasEventos.html", {"miEvento": miEvento, "Eventos": Eventos})
+
 
 @login_required()
 def buscarBodasEventos(request):
@@ -117,7 +121,7 @@ def setTrabajadores(request):
             data = miTrabajador.cleaned_data
             trabajador = Trabajadore(nombre=data["nombre"], apellido=data["apellido"], sector=data["sector"], telefono=data["telefono"], email=data["email"], fechaContratacion=data["fechaContratacion"], salario=data["salario"], foto_id=data["foto_id"], anotaciones=data["anotaciones"])
             trabajador.save()
-            return render(request, "AppRitual/templatePadre.html")
+            return render(request, "trabajadores.html")
     else:
         miTrabajador = trabajadorFormularios()
 
@@ -160,28 +164,5 @@ def contactarExitoso(request): # Vista del mail enviado
     return render(request, "contactarExitoso.html")
 
 
-def mostrar_reservas_vencidas(request):
-    reservas_vencidas = ReservasMesa.objects.filter(fechaReserva__lt=timezone.now())
-    now = timezone.now()
-    if request.method == 'POST':
-        reserva_id = request.POST.get('reserva_id')
-        nueva_fecha_reserva = request.POST.get('nueva_fecha_reserva')
-        reserva = ReservasMesa.objects.get(id=reserva_id)
-        reserva.fechaReserva = nueva_fecha_reserva
-        reserva.save()
-        return redirect('getReservas')  # Redirigir a la vista de reservas
 
-    return render(request, 'reservas_vencidas.html', {'reservas_vencidas': reservas_vencidas, 'now': now})
 
-def editar_reserva(request, reserva_id):
-    reserva = get_object_or_404(ReservasMesa, id=reserva_id)
-
-    if request.method == 'POST':
-        form = reservacionFormularios(request.POST, instance=reserva)
-        if form.is_valid():
-            form.save()
-            return redirect('getReservas')  # Redirigir a la vista de reservas
-    else:
-        form = reservacionFormularios(instance=reserva)
-
-    return render(request, 'editar_reserva.html', {'form': form})

@@ -5,15 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7fe4aa2-dc96-40b8-b7d7-2a5985e58e86" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AppRitual/templates/editar_reservas.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AppRitual/templates/reservas_vencidas.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/migrations/0002_reservasmesa_costo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppRitual/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/AppRitual/templatePadre.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/AppRitual/templatePadre.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/bodasEventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/bodasEventos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/getBodasEventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/getBodasEventos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/reservaciones.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/reservaciones.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/reservas_vencidas.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppRitual/templates/setBodasEventos.html" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/templates/setBodasEventos.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppRitual/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppRitual/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppRitual/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,20 +45,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/HP/Cursada/terceraPreEntrega---IgnacioAgustinGonzalez-master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/HP/Cursada/terceraPreEntrega-IgnacioAgustinGonzalez&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Python",
-      "HTML"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;,
+      &quot;HTML&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\HP\Cursada\graficas" />
