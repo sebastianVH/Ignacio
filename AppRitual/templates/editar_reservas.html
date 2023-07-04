@@ -1,0 +1,67 @@
+{% extends "reservaciones.html" %}
+{% load static %}
+
+{% block getReservas %}
+<!-- reservas_vencidas.html -->
+<div>
+    <h2>Reservas Vencidas</h2>
+    {% if reservas_vencidas %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha Solicitud</th>
+                    <th>Fecha Reserva</th>
+                    <th>Hora Reserva</th>
+                    <th>Número Personas</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Costo</th>
+                    <th>Estado</th>
+                    <th>Anotaciones</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reserva in reservas_vencidas %}
+                    <tr>
+                        <td>{{ reserva.nombre }}</td>
+                        <td>{{ reserva.apellido }}</td>
+                        <td>{{ reserva.fechaSolicitud }}</td>
+                        <td>
+                            {% if reserva.fechaReserva < now %}
+                                <form method="post" action="{% url 'mostrar_reservas_vencidas' %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="reserva_id" value="{{ reserva.id }}">
+                                    <input type="datetime-local" name="nueva_fecha_reserva" value="{{ reserva.fechaReserva|date:'Y-m-d\TH:i' }}">
+                                    <button type="submit">Editar</button>
+                                </form>
+                            {% else %}
+                                {{ reserva.fechaReserva }}
+                            {% endif %}
+                        </td>
+                        <td>{{ reserva.horaReserva }}</td>
+                        <td>{{ reserva.numeroPersonas }}</td>
+                        <td>{{ reserva.telefono }}</td>
+                        <td>{{ reserva.email }}</td>
+                        <td>{{ reserva.costo }}</td>
+                        <td>{{ reserva.estado }}</td>
+                        <td>{{ reserva.anotaciones }}</td>
+                        <td>
+                            {% if reserva.fechaReserva < now %}
+                                {% if reserva.fechaReserva < now %}
+                                    <a href="{% url 'editar_reserva' reserva.id %}">Editar</a>
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No hay reservas vencidas.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
