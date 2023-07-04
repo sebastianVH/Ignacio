@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bodas & Eventos | AppRitual</title>
+    {% extends "AppRitual/templatePadre.html" %}
+</head>
+<body>
+    {% block welcome_message %}
+    <!-- No se mostrará ningún contenido aquí -->
+    {% endblock %}
+
+    {% block setBodasEventos %}
+        <h3 style="color: #b8860b;">Crear Evento:</h3>
+        <form action="{% url 'setBodasEventos' %}" method="POST">
+            {% csrf_token %}
+            <table>
+                {{ miEvento.as_table }}
+            </table>
+            <input type="submit" value="Enviar">
+        </form>
+    {% endblock %}
+
+    {% block getBodasEventos %}
+        <h3 style="color: #b8860b;">Consultar Eventos:</h3>
+        <form action="{% url 'buscarBodasEventos' %}" method="GET">
+            <input placeholder="Nombre" type="text" name="nombre" id="nombre" required>
+            <input type="submit" value="Buscar">
+        </form>
+
+        {% if eventos %}
+            <ul>
+                {% for evento in eventos %}
+                    <li>{{ evento.nombre }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <table id="table">
+            <tr id="tituloTablaReserva">
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Tipo Evento</th>
+                <th>Privado</th>
+                <th>Fecha Solicitud</th>
+                <th>Fecha Evento</th>
+                <th>Hora Evento</th>
+                <th>Número Invitados</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Duración</th>
+                <th>Costo</th>
+                <th>Estado</th>
+                <th>Anotaciones</th>
+                <th>Acciones</th>
+            </tr>
+            {% for evento in Eventos %}
+                <tr>
+                    <td>{{ evento.nombre }}</td>
+                    <td>{{ evento.apellido }}</td>
+                    <td>{{ evento.tipoEvento }}</td>
+                    <td>{{ evento.privado }}</td>
+                    <td><span style="color: #b8860b;">{{ evento.fechaSolicitud|date:"d/m/Y" }}</span></td>
+                    <td>{{ evento.fechaEvento|date:"d/m/Y " }}</td>
+                    <td>{{ evento.horaEvento|time:"h:i A" }}</td>
+                    <td>{{ evento.numeroInvitados }}</td>
+                    <td>{{ evento.telefono }}</td>
+                    <td><span style="color: #b8860b;">{{ evento.email }}</span></td>
+                    <td>{{ evento.duracion }}</td>
+                    <td>{{ evento.costo }}</td>
+                    <td>
+                        {% if evento.estado %}
+                            <span style="color: green;">✔</span>
+                        {% else %}
+                            <span style="color: red;">✘</span>
+                        {% endif %}
+                    </td>
+                    <td><span style="color: #b8860b;">{{ evento.anotaciones }}</span></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endblock %}
+</body>
+</html>
